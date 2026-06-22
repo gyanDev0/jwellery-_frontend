@@ -1,0 +1,272 @@
+/* ==========================================================================
+   1. BASE LAYOUT (uses 100% instead of 100vw to avoid scrollbar overflow)
+   ========================================================================== */
+html, body, #root, .app-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: #0b0c10 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   2. DESKTOP HEADER
+   ========================================================================== */
+.main-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  height: 90px !important;
+  box-sizing: border-box !important;
+  padding: 0 80px !important;
+  background-color: #0b0c10 !important;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.main-header::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 50px !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.brand-logo {
+  height: 55px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 55px !important;
+  flex-wrap: wrap !important;
+}
+
+.nav-item {
+  color: #f4f4f6 !important;
+  text-decoration: none !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  white-space: nowrap !important;
+  position: relative !important;
+  transition: color 0.3s ease !important;
+}
+
+.nav-item::after {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: -6px !important;
+  width: 0% !important;
+  height: 1px !important;
+  background-color: #c5a880 !important;
+  transition: width 0.3s ease !important;
+}
+
+.nav-item:hover {
+  color: #c5a880 !important;
+}
+
+.nav-item:hover::after {
+  width: 100% !important;
+}
+
+.signin-btn {
+  color: #c5a880 !important;
+  text-decoration: none !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  padding: 10px 24px !important;
+  border: 1px solid rgba(197, 168, 128, 0.2) !important;
+  border-radius: 4px !important;
+  white-space: nowrap !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease !important;
+}
+
+.signin-btn:hover {
+  background-color: rgba(197, 168, 128, 0.12) !important;
+  border-color: #c5a880 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ==========================================================================
+   3. HERO ARENA & IMAGE FRAME
+   ========================================================================== */
+.hero-showcase {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 80vh !important;
+  padding: 30px 20px !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #0b0c10 !important;
+  box-sizing: border-box !important;
+}
+
+.image-frame {
+  width:70% !important;
+  max-width: min(1850px, 92vw) !important;
+  position: relative !important;
+  padding: 16px !important;
+  background-color: #0b0c10 !important;
+  box-sizing: border-box !important;
+
+  border: 1px solid rgba(197, 168, 128, 0.4) !important;
+  outline: 1px solid rgba(197, 168, 128, 0.15) !important;
+  outline-offset: -12px !important;
+
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.95),
+    0 0 80px rgba(197, 168, 128, 0.06) !important;
+
+  overflow: hidden !important;
+  animation: heroFadeUp 1s ease both !important;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+.image-frame:hover {
+  border-color: rgba(197, 168, 128, 0.8) !important;
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.95),
+    0 0 110px rgba(197, 168, 128, 0.16) !important;
+}
+
+.showcase-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: clamp(500px, 62vw, 980px) !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.6s ease !important;
+}
+
+.image-frame:hover .showcase-img {
+  transform: scale(1.03) !important;
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+.hero-text-content {
+  text-align: center !important;
+  margin-top: 55px !important;
+  width: 100% !important;
+  max-width: min(1100px, 70vw) !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+
+  animation: heroFadeUp 1s ease both !important;
+  animation-delay: 0.35s !important;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.2rem, 3vw + 1rem, 4.5rem) !important;
+  line-height: 1.4 !important;
+  color: #f4f4f6 !important;
+  margin-bottom: 25px !important;
+  letter-spacing: 1px !important;
+}
+
+.hero-description {
+  color: #a0a5ad !important;
+  font-size: clamp(1.1rem, 0.6vw + 1rem, 1.5rem) !important;
+  line-height: 1.8 !important;
+}
+
+/* ==========================================================================
+   5. MOBILE BREAKPOINT (restored)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 15px 10px !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+  .nav-links {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+  .brand-logo {
+    height: 40px !important;
+  }
+  .nav-item, .signin-btn {
+    font-size: 0.75rem !important;
+  }
+  .image-frame {
+    width: 100% !important;
+  }
+  .hero-showcase {
+    padding: 40px 16px !important;
+  }
+  .hero-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+  }
+  .hero-description {
+    font-size: 0.95rem !important;
+  }
+}
+
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-frame,
+  .hero-text-content {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .showcase-img,
+  .nav-item,
+  .nav-item::after,
+  .signin-btn {
+    transition: none !important;
+  }
+}
+
+div.rate{
+display: flex;
+justify-content: center;
+}
